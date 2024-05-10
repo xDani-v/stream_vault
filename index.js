@@ -24,7 +24,7 @@ function createWindow() {
         click: () => { mainWindow.loadFile('views/cuentas.html') }
     }))
 
-    mainWindow.webContents.openDevTools()
+    //mainWindow.webContents.openDevTools()
 
     Menu.setApplicationMenu(menu)
 }

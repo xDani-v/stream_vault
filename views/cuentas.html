@@ -11,17 +11,50 @@
 <body>
     <div class="p-5">
         <h6>Datos de cuentas</h6>
-        <form id="form" class="card-body d-flex flex-row mx-auto">
-            <select class="form-control" id="servicio"></select>
-            <input class="form-control" type="email" id="email" placeholder="Email">
-            <input class="form-control" type="text" id="email_pass" placeholder="Contraseña del Email">
-            <input class="form-control" type="text" id="cuenta_pass" placeholder="Contraseña de la Cuenta">
-            <input class="form-control" type="text" id="valor" placeholder="Valor">
-            <div>
-                <label for="fecha_prox_pago">Fecha proxima de pago</label>
-                <input class="form-control" type="date" id="fecha_prox_pago" placeholder="Fecha del próximo pago">
+        <form id="form" class="card-body d-flex flex-row mx-sm-3 gap-3">
+            <div class="mb-3">
+                <label for="servicio">Servicio</label>
+                <select class="form-control" id="servicio">
+                    <option selected disabled>Seleccione</option>
+                    <!-- Opciones del servicio aquí -->
+                </select>
             </div>
-            <button type="submit" class="btn btn-success">Guardar</button>
+
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input class="form-control" type="email" id="email" placeholder="Ej: usuario@example.com">
+            </div>
+
+            <div class="mb-3">
+                <label for="email_pass">Contraseña del Email</label>
+                <input class="form-control" type="text" id="email_pass" placeholder="Ej: miContraseña123">
+            </div>
+
+            <div class="mb-3">
+                <label for="cuenta_pass">Contraseña de la Cuenta</label>
+                <input class="form-control" type="text" id="cuenta_pass" placeholder="Ej: miContraseña123">
+            </div>
+
+            <div class="mb-3">
+                <label for="valor">Valor</label>
+                <input class="form-control" type="text" id="valor" placeholder="Ej: 100">
+            </div>
+            <div class="mb-3">
+                <label for="fecha_prox_pago">Fecha del próximo pago</label>
+                <input class="form-control" type="date" id="fecha_prox_pago">
+            </div>
+            <div class="mb-3">
+                <label for="estado">Estado</label>
+                <select class="form-control" id="estado">
+                    <option selected disabled>Seleccione</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="ocupado">Ocupado</option>
+                </select>
+            </div>
+            <div>
+                <br>
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
         </form>
         <div class="pt-5">
             <table class="table">
@@ -34,6 +67,7 @@
                         <th scope="col">Contraseña de la Cuenta</th>
                         <th scope="col">Valor</th>
                         <th scope="col">Fecha del próximo pago</th>
+                        <th scope="col">Estado</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>

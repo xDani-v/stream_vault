@@ -2,9 +2,9 @@ const fs = require('fs');
 
 var id = 0;
 // Crear o actualizar datos
-function addData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago) {
+function addData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago, estado) {
     let data = loadData();
-    data.push({ id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago });
+    data.push({ id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago, estado });
     saveData(data);
 }
 
@@ -53,7 +53,7 @@ function deleteData(id) {
 }
 
 //actualizar datos
-function updateData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago) {
+function updateData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago, estado) {
     let data = loadData();
     let item = data.find(item => String(item.id) === String(id));
     if (item) {
@@ -64,6 +64,7 @@ function updateData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_p
         item.cuenta_pass = cuenta_pass;
         item.valor = valor;
         item.fecha_prox_pago = fecha_prox_pago;
+        item.estado = estado;
         saveData(data);
     } else {
         console.log(`No se encontró ningún registro con el id ${id}`);
@@ -82,6 +83,7 @@ function editData(ido) {
         document.getElementById('cuenta_pass').value = item.cuenta_pass;
         document.getElementById('valor').value = item.valor;
         document.getElementById('fecha_prox_pago').value = item.fecha_prox_pago;
+        document.getElementById('estado').value = item.estado;
         // También puedes guardar el 'id' del elemento que se está editando para usarlo más tarde
         id = item.id;
     }
@@ -94,6 +96,7 @@ function clearData() {
     document.getElementById('cuenta_pass').value = '';
     document.getElementById('valor').value = '';
     document.getElementById('fecha_prox_pago').value = '';
+    document.getElementById('estado').value = 'Seleccione';
 }
 
 document.getElementById('form').addEventListener('submit', (e) => {
@@ -104,15 +107,16 @@ document.getElementById('form').addEventListener('submit', (e) => {
     const cuenta_pass = document.getElementById('cuenta_pass').value;
     const valor = document.getElementById('valor').value;
     const fecha_prox_pago = document.getElementById('fecha_prox_pago').value;
+    const estado = document.getElementById('estado').value;
 
     if (id === 0) {
 
         id = Date.now();
-        addData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago);
+        addData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago, estado);
 
     } else {
 
-        updateData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago);
+        updateData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago, estado);
         id = 0;
     }
     clearData();
@@ -134,6 +138,7 @@ function displayData() {
                 <td>${item.cuenta_pass}</td>
                 <td>${item.valor}</td>
                 <td>${item.fecha_prox_pago}</td>
+                <td>${item.estado}</td>
                 <td>
                 <button class="btn btn-info" onclick="editData('${item.id}')">Editar</button>
                 <button class="btn btn-warning" onclick="deleteData('${item.id}')">Eliminar</button> 

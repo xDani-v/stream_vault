@@ -68,7 +68,7 @@ function clearData() {
     document.getElementById('nombre').value = '';
     document.getElementById('correo').value = '';
     document.getElementById('telefono').value = '';
-    document.getElementById('estado').value = '';
+    document.getElementById('estado').value = 'Seleccione';
 }
 
 document.getElementById('form').addEventListener('submit', (e) => {

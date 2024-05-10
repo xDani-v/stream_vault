@@ -11,12 +11,31 @@
 <body>
     <div class="p-5">
         <h6>Datos del cliente</h6>
-        <form id="form" class="card-body d-flex flex-row mx-auto">
-            <input class="form-control" type="text" id="nombre" placeholder="Nombre completo">
-            <input class="form-control" type="email" id="correo" placeholder="Correo electronico">
-            <input class="form-control" type="text" id="telefono" placeholder="Telefono">
-            <input class="form-control" type="text" id="estado" placeholder="Estado">
-            <button type="submit" class="btn btn-success">Guardar</button>
+        <form id="form" class="card-body d-flex flex-row mx-sm-3 gap-3">
+            <div class="mb-3">
+                <label for="nombre">Nombre completo</label>
+                <input class="form-control" type="text" id="nombre" placeholder="Ej: Juan Pérez">
+            </div>
+            <div class="mb-3">
+                <label for="correo">Correo electrónico</label>
+                <input class="form-control" type="email" id="correo" placeholder="Ej: juan.perez@example.com">
+            </div>
+            <div class="mb-3">
+                <label for="telefono">Teléfono</label>
+                <input class="form-control" type="text" id="telefono" placeholder="Ej: 1234567890">
+            </div>
+            <div class="mb-3">
+                <label for="estado">Estado</label>
+                <select class="form-control" id="estado">
+                    <option selected disabled>Seleccione</option>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <br>
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
         </form>
         <div class="pt-5">
             <table class="table">
