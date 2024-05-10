@@ -11,7 +11,7 @@ function addData(id, nombre, correo, telefono, estado) {
 // Leer datos
 function loadData() {
     try {
-        let data = fs.readFileSync('clientes.json', 'utf8');
+        let data = fs.readFileSync('data/clientes.json', 'utf8');
         return JSON.parse(data);
     } catch (err) {
         return [];
@@ -20,7 +20,7 @@ function loadData() {
 
 // Guardar datos
 function saveData(data) {
-    fs.writeFileSync('clientes.json', JSON.stringify(data));
+    fs.writeFileSync('data/clientes.json', JSON.stringify(data));
 }
 
 // Eliminar datos

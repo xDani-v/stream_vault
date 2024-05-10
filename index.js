@@ -20,8 +20,8 @@ function createWindow() {
         click: () => { mainWindow.loadFile('views/clientes.html') }
     }))
     menu.append(new MenuItem({
-        label: 'Vista 2',
-        click: () => { mainWindow.loadFile('views/view2.html') }
+        label: 'Cuentas',
+        click: () => { mainWindow.loadFile('views/cuentas.html') }
     }))
 
     mainWindow.webContents.openDevTools()
