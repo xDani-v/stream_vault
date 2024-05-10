@@ -31,6 +31,7 @@ function loadServicios() {
             let option = document.createElement('option');
             option.value = servicio.id; // Asume que cada servicio tiene un id
             option.text = servicio.nombre; // Asume que cada servicio tiene un nombre
+            option.dataimg = servicio.imagen;
             select.add(option);
         });
     } catch (err) {

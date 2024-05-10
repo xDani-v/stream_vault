@@ -20,13 +20,19 @@ function createWindow() {
         click: () => { mainWindow.loadFile('views/clientes.html') }
     }))
     menu.append(new MenuItem({
+        label: 'Servicios',
+        click: () => { mainWindow.loadFile('views/servicios.html') }
+    }))
+    menu.append(new MenuItem({
         label: 'Cuentas',
         click: () => { mainWindow.loadFile('views/cuentas.html') }
     }))
 
+
     //mainWindow.webContents.openDevTools()
 
     Menu.setApplicationMenu(menu)
+    app.commandLine.appendSwitch('ignore-certificate-errors');
 }
 
 app.whenReady().then(createWindow)
