@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1715280220585,
+        "nombre": "andy chamba",
+        "correo": "andy@gmail.com",
+        "telefono": "21121212",
+        "estado": "activo"
+    },
+    {
+        "id": 1715284971121,
+        "nombre": "daniel villano",
+        "correo": "villanodaniel8@gmail.com",
+        "telefono": "0984180878",
+        "estado": "activo"
+    }
+]
