@@ -120,11 +120,43 @@ document.getElementById('form').addEventListener('submit', (e) => {
         updateData(id, servicio, email, email_pass, cuenta_pass, valor, fecha_prox_pago, estado);
         id = 0;
     }
-    clearData();
     displayData();
+    clearData();
+
 });
 
 function displayData() {
+    let data = loadData();
+    // Obtener el servicio seleccionado
+    let selectedService = document.getElementById('servicio').value;
+
+    // Filtrar los datos para incluir solo los elementos que coincidan con el servicio seleccionado
+    data = data.filter(item => item.servicio === selectedService);
+    let table = document.getElementById('tbody');
+    table.innerHTML = ''; // Limpiar el contenido anterior
+    let rows = '';
+    data.forEach(item => {
+        rows += `
+            <tr>
+                <td>${item.id}</td>
+                <td>${item.servicio}</td>
+                <td>${item.email}</td>
+                <td>${item.email_pass}</td>
+                <td>${item.cuenta_pass}</td>
+                <td>${item.valor}</td>
+                <td>${item.fecha_prox_pago}</td>
+                <td>${item.estado}</td>
+                <td>
+                <button class="btn btn-info" onclick="editData('${item.id}')">Editar</button>
+                <button class="btn btn-warning" onclick="deleteData('${item.id}')">Eliminar</button> 
+                </td>
+            </tr>
+        `;
+    });
+    table.innerHTML = rows; // Agregar todas las filas a la vez
+}
+
+function displayDataG() {
     let data = loadData();
     let table = document.getElementById('tbody');
     table.innerHTML = ''; // Limpiar el contenido anterior
@@ -150,5 +182,17 @@ function displayData() {
     table.innerHTML = rows; // Agregar todas las filas a la vez
 }
 
-displayData();
+
+
+displayDataG();
 loadServicios();
+document.addEventListener('DOMContentLoaded', function () {
+    document.getElementById('servicio').addEventListener('change', function () {
+        let selectedService = this.value;
+        if (selectedService === 'seleccione') {
+            displayDataG();
+        } else {
+            displayData();
+        }
+    });
+});
